@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+</head>
+<body>
+
+<div class="header">
+    <ul>
+        <li><a class="active" href="/api/zh_blog/">田信的blog</a></li>
+        <li  style="float:right"><a href="/api/zh_blog/login">登陆</a></li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="leftcolumn">
+        {{ range $i,$v := .notes }}
+        <div class="card">
+            <h2>{{$v.Title}}</h2>
+            <h5>{{$v.TitleDesc}}</h5>
+            <div class="fakeimg" style="height:200px;">Image</div>
+            <p>{{$v.Content}}</p>
+        </div>
+        {{end}}
+    </div>
+    <div class="rightcolumn">
+        <div class="card">
+            <h2>关于我</h2>
+            <div class="fakeimg" style="height:100px;">Image</div>
+            <p>本网站只是为了记录自己的生活</p>
+        </div>
+        <div class="card">
+            <h3>标签</h3>
+            {{ range $i,$v := .labels }}
+            <div class="fakeimg">{{$v.Name}}</div><br>
+            {{end}}
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <h2>Footer</h2>
+</div>
+
+</body>
+</html>
